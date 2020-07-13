@@ -42,9 +42,9 @@ def createObj():
 
 
 for x in range(depth):
-    nObjects = randrange(depth)
+    nObjects = randrange(1, depth)
     createObjJson(nObjects)
-    nArrays = randrange(depth)
+    nArrays = randrange(1, depth)
     createArrJson(nArrays)
 
 
