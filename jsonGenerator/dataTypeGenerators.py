@@ -1,6 +1,7 @@
 from faker import Faker
 import random
 import math
+import datetime
 
 fake = Faker()
 
@@ -29,30 +30,61 @@ def get_sentence(length=16):
 
 
 def get_int():
-    #print("Int")
-    return fake.random_int(min=-65535, max=65536)
+    result = float(fake.random_int(min=-65535, max=65536))
+    # print("get_int returns {}".format(type(result)))
+    return result
 
 
 def get_long():
-    #print("Long")
-    return random.getrandbits(random.randrange(64, 256))
+    result = float(random.getrandbits(random.randrange(64, 256)))
+    # print("get_long returns {}".format(type(result)))
+    return result
 
 
 def get_float():
-    #print("Float")
     num = float(get_int())
-    min_num = num / (num + (num/10))
-    max_num = num / (num + (num/5))
-    return random.uniform(min_num, max_num)
+    min_num = num / (num + (num / 10))
+    max_num = num / (num + (num / 5))
+    result = random.uniform(min_num, max_num)
+    # print("get_float returns {}".format(type(result)))
+    return result
 
 
 def get_exp_number():
-    #print("Exponential")
+    # print("Exponential")
     multiplier = 1
-    if(fake.boolean()):
+    if (fake.boolean()):
         multiplier = -1
-    if(fake.boolean()):
+    if (fake.boolean()):
         num = random.randrange(40, 500)
     else:
-        num = 1/get_long()
+        num = 1 / get_long()
     return math.expm1(num) * multiplier
+
+
+def get_boolean():
+    return fake.boolean()
+
+
+def get_null():
+    return None
+
+
+def get_key():
+    return fake.sentence() if fake.pybool() else fake.word()
+
+
+def get_list():
+    result = fake.pylist(nb_elements=50, variable_nb_elements=True)
+    for i, s in enumerate(result):
+        if isinstance(s, datetime.datetime):
+            result[i] = s.isoformat()
+    return result
+
+
+def get_dict():
+    result = fake.pydict(nb_elements=25, variable_nb_elements=True)
+    for key, value in result.items():
+        if isinstance(value, datetime.datetime):
+            result[key] = value.isoformat()
+    return result
