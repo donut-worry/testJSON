@@ -3,7 +3,7 @@
 Steps:
 
 1. Install dependencies per requirements.txt
-2. Run this script : genFakeJson.py
+2. Run this script using python3 : genFakeJson.py
 
 ```
 Usage:
