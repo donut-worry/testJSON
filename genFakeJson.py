@@ -3,7 +3,6 @@ import argparse
 import os
 import random
 import simplejson as json
-#import json
 
 from jsonGenerator import createNestedObj as c
 
@@ -11,7 +10,7 @@ jsonGenerators = [c.create_top_level_obj, c.create_nested_obj, c.create_nested_a
 
 
 def check_path(absPath):
-    if(not os.path.isdir(absPath)):
+    if not os.path.isdir(absPath):
         print("Unable to locate output directory. Please check path and try again : {}".format(absPath))
         sys.exit("EXITING... output directory path not found on filesystem")
     else:
@@ -25,7 +24,6 @@ def generate_json(depth, count, outdir):
         jsonFileName = outdir + '/fakeJson' + str(x) + '.json'
         with open(jsonFileName, 'w') as f:
             json.dump(jsonDoc, f, ensure_ascii=False, indent=4)
-        #print('Written file {}'.format(jsonFileName))
 
 
 def main():
@@ -42,8 +40,6 @@ def main():
     output_dir = check_path(args.outputDir)
     print("------- Generating {} JSON files with maximum depth of {} . Please wait...".format(count, depth))
     generate_json(depth, count, output_dir)
-    #jsonDoc = c.create_nested_obj(depth)
-    #print(json.dumps(jsonDoc))
     print("--- All done ---")
 
 

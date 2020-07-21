@@ -6,9 +6,6 @@ import datetime
 fake = Faker()
 
 
-# depth = 6
-
-
 def get_text(length=100):
     return fake.text(max_nb_chars=length)
 

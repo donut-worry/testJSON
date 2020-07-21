@@ -1,2 +1,2 @@
 Faker==4.1.1
-simplejson=3.17.2
+simplejson~=3.17.2
