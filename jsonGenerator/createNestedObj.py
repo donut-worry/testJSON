@@ -25,6 +25,7 @@ def create_inner_nested_obj(depth):
 def create_nested_array(depth):
     result_list = g.get_array(25)
     result_list[random.randrange(0, len(result_list))] = create_inner_nested_array(depth - 1)
+    return result_list
 
 
 def create_inner_nested_array(depth):
