@@ -47,7 +47,7 @@ def print_deep_dict(d):
 
 def main():
     # print(json.dumps(create_nested_obj(3),iterable_as_array=True))
-    print(json.dumps(create_nested_obj(6)))
+    print(json.dumps(create_nested_array(6)))
     # print_deep_dict(create_nested_obj(3))
 
 

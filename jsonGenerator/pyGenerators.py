@@ -6,7 +6,7 @@ import random
 stringGenerators = [gen.get_text, gen.get_paragraph, gen.get_sentence, gen.get_name, gen.get_address]
 numberGenerators = [gen.get_int, gen.get_long, gen.get_float, gen.get_exp_number]
 simpleObjGenerators = stringGenerators + numberGenerators + [gen.get_boolean, gen.get_null]
-valueGenerators = [simpleObjGenerators, gen.get_list, gen.get_dict]
+valueGenerators = simpleObjGenerators + [ gen.get_list, gen.get_dict]
 
 
 def get_string():
